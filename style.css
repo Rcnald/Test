@@ -1,9 +1,0 @@
-fieldset{
-    display: flex;
-    flex-direction: column;
-    width: 10rem;
-}
-
-fieldset input{
-    padding: 3rem 0 0 0;
-}
