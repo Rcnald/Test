@@ -125,6 +125,7 @@
     <body>
         <ul>
             <li>Item 1</li><!-- vermelho -->
+            <li>Item 3</li><!-- vermelho -->
             <ul>
                 <li>Item 2</li><!-- vermelho -->
             </ul>
@@ -242,3 +243,249 @@
     }
     ```
     > Aplica a cor vermelho para **todos** seus irmãos `p`.
+
+# Pseudo-classes
+- É um tipo de seletor que irá selecionar um elemento que estiver em um estado especifico.
+    - Primeiro elemento dentro de uma caixa.
+    - Elemento está com o ponteiro do mouse em cima dele.
+- Começam com `:` seguido do nome da pseudo class.
+    - `:pseudo-class-name`
+
+## Selecionando elementos com pseudo-classes.
+
+### :first-child
+- Seleciona o primeiro filho de um grupo de elementos.
+
+    ```html
+    <!-- HTML-->
+    <ul>
+        <li>Eu</li>
+        <li>Escolho</li>
+        <li>As</li>
+        <li>palavras</li>
+    </ul>
+    ```
+    ```css
+    /* CSS */
+    ul li:first-child{
+    color:yellow;
+    }   
+    ```
+    > Seleciona o primeiro filho `li` de `ul`
+    - <span style="color:yellow">Eu</span>
+    - Escolho
+    - As
+    - Palavras
+    
+    ---
+- Se o primerio filho **não** for o **indicado**, ele não funciona.
+    ```html
+    <!-- HTML-->
+    <ul>
+        <h3>Sim</h3>
+        <li>Eu</li>
+        <li>Escolho</li>
+        <li>As</li>
+        <li>palavras</li>
+    </ul>
+    ```
+
+    ```css
+    /* CSS */
+    ul li:first-child{
+        color:yellow;
+    }   
+    ```
+
+    > Seleciona o primeiro filho `li` de `ul`, **MAS** como o primeiro filho **não** é _li_ não estiliza nenhum elemento.	
+
+    ### Sim
+    - Eu
+    - Escolho
+    - As
+    - Palavras
+
+### :nth-of-type( )
+- Escolhe qual dos filhos de um determinado tipo será selecionado.
+
+    ```html
+    <!-- HTML-->
+    <article>
+        <h3>Sim</h3>
+
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+    </article>
+    ```
+
+    ```css
+    /* CSS */
+    article p:nth-of-type(2){
+        color:yellow;
+    } 
+    ```
+    > Seleciona filho `p` por ordem.
+
+    ### Sim
+
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+
+    <span style="color:yellow">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</span>
+
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+
+### :nth-child( )
+- Escolhe qual dos filhos será selecionado.
+
+    ```html
+    <!-- HTML-->
+    <article>
+        <h3>Sim</h3>
+
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+    </article>
+    ```
+
+    ```css
+    /* CSS */
+    article p:nth-child(2){
+        color:yellow;
+    } 
+    ```
+    > Seleciona filho por ordem, não se importando com o tipo de elemento(como `1` seria o `h3`, não funciona).
+
+    ### Sim
+
+    <span style="color:yellow">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</span>
+
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+    
+    ---
+
+    ```css
+    /* CSS */
+    article p:nth-child(3){
+        color:yellow;
+    } 
+    ```
+    ### Sim
+
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+
+    <span style="color:yellow">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</span>
+
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+
+#### Even & Odd
+
+##### Even
+- Sigifica **par**(números pares).
+
+    ```html
+    <!-- HTML-->
+    <ul>
+        <li>Você</li>
+        <li>É</li>
+        <li>Muito</li>
+        <li>Gay</li>
+    </ul>
+    ```
+
+    ```css
+    /* CSS */
+    article p:nth-child(even){
+        color:blue;
+    } 
+    ```
+    > Com `even` seleciona apenas os **número pares** dos filhos.
+
+    - Você
+    - <span style="color:blue">É</span>
+    - Muito
+    - <span style="color:blue">Gay</span>
+
+##### Odd
+- Sigifica **Impar**(números impares).
+
+    ```html
+    <!-- HTML-->
+    <ul>
+        <li>Você</li>
+        <li>É</li>
+        <li>Muito</li>
+        <li>Gay</li>
+    </ul>
+    ```
+
+    ```css
+    /* CSS */
+    article p:nth-child(odd){
+        color:blue;
+    } 
+    ```
+    > Com `even` seleciona apenas os **número impares** dos filhos.
+
+    - <span style="color:blue">Você</span>
+    - É
+    - <span style="color:blue">Muito</span>
+    - Gay
+
+## Ações do usuário
+
+### :hover
+- Quando o elemento está com o mouse em cima dele.
+
+    ```html
+    <!-- HTML-->
+    <a href="">Clique aqui</a>
+    ```
+
+    ```css
+    /* CSS */
+    a:hover{
+    color: red;
+    }
+    ```
+    > Quando o mouse estiver em cima do elemento `a` ele mudará para cor vermelha.
+
+    **SEM HOVER(Mouse em cima)**
+
+    <span style="color:blue"><u>Clique aqui</u></span>
+
+    **COM HOVER(Mouse em cima)**
+
+    <span style="color:red"><u>Clique aqui</u></span>
+
+### :focus
+- Quando o elemento está em foco, está selecionada(eu acho).
+- Usado mais em inputs.
+
+    ```html
+    <!-- HTML-->
+    <a href="">Clique aqui</a>
+    ```
+
+    ```css
+    /* CSS */
+    a:hover{
+    color: red;
+    }
+    ```
+    > Quando o mouse estiver em cima do elemento `a` ele mudará para cor vermelha.
+
+    **SEM HOVER(Mouse em cima)**
+
+    <span style="color:blue"><u>Clique aqui</u></span>
+
+    **COM HOVER(Mouse em cima)**
+
+    <span style="color:red"><u>Clique aqui</u></span>
