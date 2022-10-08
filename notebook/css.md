@@ -471,21 +471,370 @@
 
     ```html
     <!-- HTML-->
-    <a href="">Clique aqui</a>
+    <input type="text">
     ```
 
     ```css
     /* CSS */
-    a:hover{
-    color: red;
+    input:focus{
+    background-color: red;
     }
     ```
-    > Quando o mouse estiver em cima do elemento `a` ele mudará para cor vermelha.
+    > Quando o elemento estiver selecionado/em foco, o `input` ficará vermelho.
 
-    **SEM HOVER(Mouse em cima)**
+## Atributos
 
-    <span style="color:blue"><u>Clique aqui</u></span>
+### :disabled
+- Quando o elemento estiver com o atributo `disabled`.
 
-    **COM HOVER(Mouse em cima)**
+    ```html
+    <!-- HTML-->
+    <input type="text" disabled>
+    ```
 
-    <span style="color:red"><u>Clique aqui</u></span>
+    ```css
+    /* CSS */
+    input:disabled{
+    background-color: red;
+    }
+    ```
+    > Enquanto o element estiver com o atributo `disabled` ele ficará vermelho.
+
+### :required
+- Quando o elemento estiver com o atributo `required`.
+
+    ```html
+    <!-- HTML-->
+    <input type="text" required>
+    ```
+
+    ```css
+    /* CSS */
+    input:required{
+    background-color: blue;
+    }
+    ```
+    > Enquanto o element estiver com o atributo `required` ele ficará blue.
+
+  **[Referência](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes "Pseudo classes") EXISTE TUDO QUE VOCÊ IMAGINAR DE PSEUDO CLASSS.**
+
+# Pseudo-elements
+- Com pseudo-elements nós podemos **adiconar** elementos HTML pelo próprio CSS.
+- Começam com `::` seguido do nome da pseudo element.
+    - `::pseudo-element-name`
+
+## :before
+- Adicionar pseudo elementos **antes** do elemento.
+
+    ```html
+    <!-- HTML-->
+    <ul>
+        <li>Você</li>
+        <li>É</li>
+        <li>Muito</li>
+        <li>Gay</li>
+    </ul>
+    ```
+
+     ```css
+    /* CSS */
+    li::before{
+    content: ">";
+    }
+    ```
+    > `content` é necessario para adiconar/estilizar o pseudo element, mesmo que vazio.
+
+    - \> Você
+    - \> É
+    - \> Muito
+    - \> Gay
+
+    ---
+
+    ```css
+    /* CSS */
+    li{
+    position: relative;
+    }
+
+    li::after{
+    content: "";
+    width: 10px;
+    height: 1px;
+    background: black;
+    position: absolute;
+    bottom: 0px;
+    }
+    ```
+    > `content` vazio.
+
+    - Você_
+    - É_
+    - Muito_
+    - Gay_
+
+## :after
+- Adicionar pseudo elementos **depois** do elemento.
+
+    ```html
+    <!-- HTML-->
+    <ul>
+        <li>Você</li>
+        <li>É</li>
+        <li>Muito</li>
+        <li>Gay</li>
+    </ul>
+    ```
+
+    ```css
+    /* CSS */
+    li::after{
+    content: ";";
+    }
+    ```
+
+    - Você;
+    - É;
+    - Muito;
+    - Gay;
+
+## ::first-line
+- Adicionar um pseudo elemento a um elemento somente na **primeira linha** do texto.
+    - Bold
+
+    **[Referência](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements "Pseudo elements") EXISTE POUCO QUE VOCÊ IMAGINAR DE PSEUDO ELEMENTS.**
+
+# Layout e evolução 
+- Layout tem a ver com a maneira que os elementos estão distribuidos na tela.
+
+## Normal flow
+- Flow layout é a maneira que os elementos `block` e `inline` ficam na página.
+
+    ```html
+    <!-- HTML-->
+    <p>texto block com <strong>inline</strong> dentro</p>
+
+    <div>Outro texto</div>
+    ```
+    > O element `strong` é _inline_ ou seja não quebra linhas por padrão.
+    >
+    > O element `div` é _block_ então quebra linhas por padrão.
+
+    texto block com **inline** dentro
+
+    Outro texto
+
+## Tables
+-   É a maneira de tabelas onde a tag table recebe um display ` table` fazendo com que os elementos internos como ` td` e ` tr` possam ser usados para montar uma tabela.
+
+    ```html
+    <!-- HTML-->
+    <table>
+        <tr>
+            <td>Hora</td>
+            <td>20:00</td>
+        </tr>
+        <tr>
+            <td>Hora</td>
+            <td>20:37</td>
+        </tr>
+    </table>
+    ```
+    > Flow da `table`.
+
+    | Hora | 20:00 |             |
+    |------|-------|-------------|
+    | Hora | 20:37 |             |
+    | Hora | 20:37 | Outra coisa |
+
+## Tableless
+- Uso das propriedades `float` , `clear` para que os elementos possam mudar de posição na tela .
+
+    ```html
+    <!-- HTML-->
+    <div>esquerda</div>
+    <div>direita</div>
+    <div>normal flow</div>
+    ```
+    esquerda
+
+    direita
+
+    normal flow
+
+    ```css
+    /* CSS */
+    body div:nth-of-type(1){
+        float: left;
+    }
+    body div:nth-of-type(2){
+        float: right;
+    }
+    body div:nth-of-type(3){
+        clear: both;
+    }
+    ```
+    esquerda <u>direita</u>-------------------------------------------------------->*
+
+    normal flow
+
+## Flexbox
+- A caixa se torna flex, fazendo com que os elementos internos possam receber melhor
+    - Alinhamento
+    - Ordenação
+    - Tamanhos flexíveis
+
+    ```html
+    <!-- HTML-->
+    <div class="flexbox">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item">C</div>
+    </div>
+    ```
+
+    A
+
+    B
+
+    C
+
+    ```css
+    /* CSS */
+    .flexbox{
+    display: flex;
+    flex-direction: column;
+    }
+
+    .item:nth-child(1){
+        order: 1;
+    }
+    ```
+    B
+
+    C
+
+    A
+
+# Terminologia
+- **Flex Container**  `algo que contem`
+    - **Flex item**  `o 'algo' dentro do container`
+- **Nesting**  `elemento que contem outros elementos`
+- **Axis**  `eixo`
+    - **main**  `principal`
+        - **start**, **end**   `começo , fim`
+    - **cross**  `cruzado`
+        - **start**, **end**  `começo , fim`
+- **Flex sizing**
+    - **flexível**
+    - **altera width/height dos itens assim preenchendo os espaços do flex container**
+
+# Propriedades do Flex Container
+- Direção dos linhas
+- Multi linhas 
+- Alinhamento
+    - Principal
+    - Cruzado
+- Espaços entre os itens
+
+## Direção dos itens
+- Flex é uma dimensão (horizontal e vertical).
+- Podemos mudar a direção com `flex-direction`.
+- Valores: (row | row-reverse | column | column-reverse) 
+
+    ```html
+    <!-- HTML-->
+    <div class="container">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item">C</div>
+    </div>
+    ```
+    A 
+
+    B 
+
+    C
+
+    ---
+    ---
+
+    ```css
+    /* CSS */
+    .container{
+    display: flex;
+    flex-direction: row;
+    }
+    ```
+    
+    ABC
+
+    > `flex-direction:` direção dos itens.
+    >
+    > `row`
+    ---
+
+    ```css
+    /* CSS */
+    .container{
+    display: flex;
+    flex-direction: row-reverse;
+    }
+    ```
+
+    <u>CBA</u>------------------------------------------>*
+
+    > `row-reverse`
+
+    ---
+
+    ```css
+    /* CSS */
+    .container{
+    display: flex;
+    flex-direction: column;
+    }
+    ```
+
+    A
+
+    B
+
+    C
+
+    > `column`
+
+    ---
+
+    ```css
+    /* CSS */
+    .container{
+    display: flex;
+    flex-direction: column-reverse;
+    height: 100vh;
+    }
+    ```
+
+    C
+
+    B
+
+    A
+
+    |
+
+    |
+
+    |
+
+    |
+
+    V
+
+    *
+
+    > `column-reverse`
+
+## flex-wrap
+- Podemos usar multi linhas.
+- Cada nova linha, um novo flex container.
