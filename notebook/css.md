@@ -836,5 +836,170 @@
     > `column-reverse`
 
 ## flex-wrap
-- Podemos usar multi linhas.
+- Podemos usar multi linhas.(varios eixos principais)
 - Cada nova linha, um novo flex container.
+
+**Exemplo**
+- Muito complicado, basicamente iria jogar o elemento para a linha de baixo quando ele não couber mais na linha de cima(original).
+
+> `flex-wrap:wrap`.
+
+**Exemplo reverse**
+
+- Agora iria jogar o elemento para a linha de cima quando ele não couber mais na linha de baixo(original).
+
+> `flex-wrap:wrap-reverse`.
+
+## flex-flow
+- shorthand
+- Direção e multi linha em uma unica propriedade
+
+```css
+flex-flow: column wrap;
+```
+
+## justify-content
+- Alinhamento dos elementos dentro do container.
+- Eixo principal.
+- Distribuição dos elementos.
+
+### valores
+
+- flex-start `inicio da linha`
+- flex-end `fim da linha`
+- center `centro da linha`
+- space-around `espaço em volta de todos os elementos`
+- space-between `espaço entre os elementos`
+- space-evenly  `espaco por igual entre os elementos`
+
+**TESTE ELES!**
+
+### align-items
+- Alinhamento dos elementos do eixo cruzado.
+
+## valores
+- stretch `esticado` _padrão_
+- flex-start `incio`
+- flex-end `fim`
+- center `centro`
+
+## gap
+- Espaços entre os elementos.
+- colocado na div pai.
+
+### valores
+- Unidades de medida
+    - Fixas: px, pt
+    - Flexiveis: %, em, rem
+
+# Propriedades dos itens do Flex
+- flex-basis `mudar tamanho do item`
+- flex-grow `adapta, cresce`
+- flex-shrink `encurta, comprimi`
+- flex `shorthand para os três`
+- order `ordenar elementos`
+
+## flex-basis
+- Basicamente muda o tamanho dos itens.
+- Se baseia no eixo principal.
+- Para melhor entendimento veja.
+    - Discover > Trilha Fundamentar > Alinhando os planetas > Propriedades dos itens > Largura e altura dos itens com flex-base.
+
+## flex-grow
+- O crescimento do item dentro do container em relaçao aos **espaços vazios.**
+
+```html
+ <!-- HTML-->
+<div class="container">
+    <div class="item">A</div>
+    <div class="item">B</div>
+    <div class="item">C</div>
+</div>
+```
+
+```css
+/* CSS */
+.box{
+    border: 1px dashed red;
+    display: flex;
+}
+
+.box div{
+    border: 1px solid;
+    width: 800px;
+    flex-basis: 25px;
+}
+
+.box div:nth-child(2){
+    flex-grow: 1;
+}
+```
+> Basicamente todos os itens tem 25px, mas o item B agora preenche todo o espaço vazio.
+
+---
+
+```css
+/* CSS */
+.box{
+    border: 1px dashed red;
+    display: flex;
+}
+
+.box div{
+    border: 1px solid;
+    width: 800px;
+    flex-basis: 25px;
+}
+
+.box div:nth-child(2){
+    flex-grow: 1;
+}
+
+.box div:nth-child(3){
+    flex-grow: 1;
+}
+```
+> Agora B divide esse espaço vazio com C
+
+## flex-shrink
+- O encolher do item dentro do container.
+
+```html
+ <!-- HTML-->
+<div class="container">
+    <div class="item">A</div>
+    <div class="item">B</div>
+    <div class="item">C</div>
+</div>
+```
+
+```css
+/* CSS */
+.box{
+    border: 1px dashed red;
+    display: flex;
+    width: 600px;
+}
+
+.box div{
+    flex-basis: 100%;
+    border: 1px solid;
+}
+
+.box div:nth-child(2){
+    flex-shrink: 3;
+}
+```
+> O 'shrink' do item serve para ele ser encolhido a medida que os outros itens aumentam(ou quase isso k), assim tirando o espaço que era dele.
+>
+> o padrão é shrink: 1
+
+## flex
+- Shorthand
+    - grow
+    - shrink
+    - basis
+
+```css
+flex: 1 1 10px;    
+```
