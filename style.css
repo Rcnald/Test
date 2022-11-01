@@ -1,14 +1,3 @@
-.box{
-    border: 1px dashed red;
-    display: flex;
-    width: 600px;
-}
-
-.box div{
-    flex-basis: 100%;
-    border: 1px solid;
-}
-
-.box div:nth-child(2){
-    flex-shrink: 3;
+.red{
+    background: red;
 }

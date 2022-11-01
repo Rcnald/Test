@@ -2006,3 +2006,463 @@ console.log(niceBreakfast)
 	– Como enfrentar o mal do século
 	```
 	> Exemplo feito: 90% de Mayk, 10% de mim k
+
+# DOM (Document Object Model)
+- É o HTML convertido para um Object do JavaScript.
+- API que representa e interage com o HTML.
+	- O que faz a comunicação entre o HTML e JavaScript.
+- Estrutura de dados do tipo árvore, criada pelo browser.
+- Propriedades e métodos.
+
+## getElementById()
+- Ter acesso ao elemento pelo seu ID.
+
+	```html
+	<!-- HTML-->
+	<h1 id="xog-title">Meu xog</h1>
+	```
+
+	```js
+	// JS
+	const element = document.getElementById('xog-title')
+
+	console.log(element)
+	```
+
+		<h1 id="xog-title">Meu xog</h1>
+	> Dessa forma você tem acesso ao elemento.
+
+## getElementsByClassName()
+- Ter acesso ao(s) elemento(s) pelo seu class name.
+
+	```html
+	<!-- HTML-->
+	<h1 class="one">Meu xog</h1>
+
+	<p class="one">seu xog</p>
+	```
+
+	```js
+	// JS
+	const element = document.getElementsByClassName('one')
+
+	console.log(element)
+	```
+
+	HTMLCollection(2)
+	0
+	: 
+	h1.one
+	1
+	: 
+	p.one
+	length
+	: 
+	2
+	> Dessa forma você tem acesso ao(s) elemento(s).
+
+## getElementsByTagName()
+- Ter acesso ao(s) elemento(s) pelo seu tag name.
+
+	```html
+	<!-- HTML-->
+	<h1>Meu xog</h1>
+	<h1>Meu zog</h1>
+
+	<p>seu xog</p>
+	```
+
+	```js
+	// JS
+	const element = document.getElementsByTagName('h1')
+
+	console.log(element)
+	```
+
+	HTMLCollection(2) [h1, h1]
+	0
+	: 
+	h1
+	1
+	: 
+	h1
+	length
+	: 
+	2
+	> Dessa forma você tem acesso ao(s) elemento(s).
+
+## querySelector()
+- Tem acesso ao elemento por meio dos `seletores` css (TODOS).
+
+	```html
+	<!-- HTML-->
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href="style.css">
+	    <title>Document</title>
+	</head>
+	<body>
+	    <h1 class="one">Meu xog</h1>
+	</body>
+	<script src="./script.js"></script>
+	</html>
+	```
+
+	```js
+	// JS
+	const element = document.querySelector('h1')
+
+	console.log(element)
+	```
+
+		<h1 class="one">Meu xog</h1>
+	> Seletor `tag`.
+	---
+	```js
+	// JS
+	const element = document.querySelector('.one')
+
+	console.log(element)
+	```
+
+		<h1 class="one">Meu xog</h1>
+	> Seletor `class name`.
+	---
+	```js
+	// JS
+	const element = document.querySelector('[src]')
+
+	console.log(element)
+	```
+	> Seletor `atributo`.
+
+## querySelectorAll()
+- Tem acceso a um lista de todos os elementos referentes a `seletores` css.
+
+	```html
+	<!-- HTML-->
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href="style.css">
+	    <title>Document</title>
+	</head>
+	<body>
+	    <h1 class="one">Meu xog</h1>
+		<h1>Meu zog</h1>
+	</body>
+	<script src="./script.js"></script>
+	</html>
+	```
+
+	```js
+	// JS
+	const element = document.querySelectorAll('h1')
+
+	console.log(element)
+	```
+
+	NodeList(2) [h1.one, h1]
+	0
+	: 
+	h1.one
+	1	
+	: 
+	h1
+	length
+	: 
+	2
+
+## Diferença 
+
+### getElementbyId
+- Element
+
+### getElementbyClassName
+- HTML Collection
+
+### getElementbyTagName
+- HTML Collection
+
+### querySelector
+- Element
+
+### querySelectorAll
+- NodeList
+
+# Manipulando conteúdos
+
+## .textContent
+- Altera o conteúdo de texto do elemento.
+- Pode tambem adicionar com `+=`.
+
+	```html
+	<!-- HTML-->
+	<h1 class="one">Meu xog</h1>
+	```
+	Meu xog
+
+	```js
+	// JS
+	const element = document.querySelector('h1')
+
+	element.textContent = "Seu o caralho"
+	```
+	Seu o caralho
+	---
+	```js
+	// JS
+	const element = document.querySelector('h1')
+
+	element.textContent += " Seu o caralho"
+	```
+	Meu xog Seu o caralho
+
+	> `.textContent` tem acesso ao conteúdo do elemento.
+
+## .innerText
+- Altera o texto interno do elemento.
+
+	```html
+	<!-- HTML-->
+	<h1 class="one">Meu xog</h1>
+	```
+	Meu xog
+
+	```js
+	// JS
+	const element = document.querySelector('h1')
+
+	element.innerText = "Seu o caralho"
+	```
+	Seu o caralho
+
+	> interprete.
+
+## .innerHTML
+- Altera conteúdo HTML interno.
+
+	```html
+	<!-- HTML-->
+	<h1 class="one">Meu xog</h1>
+	```
+	Meu xog
+
+	```js
+	// JS
+	const element = document.querySelector('h1')
+
+	element.innerHTML = "Seu o caralho <strong>!!!</strong>"
+	```
+	Seu o caralho **!!!**
+
+	> Ele adicionou a "string" documento html `strong` como um novo elemento.
+
+## .value
+- Altera `value` de um input(não só input(eu acho))
+- Server tanto para exibir o valor tanto para o altera-lo.
+
+	```html
+	<!-- HTML-->
+	<h1 class="one">Meu xog</h1>
+	<input type="text">
+	```
+	```js
+	// JS
+	const element = document.querySelector('input')
+
+	element.value = "eh isso ai feh"
+	```
+
+	> O valor do HTML `input` foi alterado.
+
+## Manipulando atributos
+
+### Adicionando atributo
+- adiciona umm atributo a um elemento.
+
+	```html
+	<!-- HTML-->
+	<h1>Meu xog</h1>
+	```
+
+	```js
+	// JS
+	const h1 = document.querySelector('h1')
+
+	h1.setAttribute('id','header1')
+
+	const h1ID = document.getElementById('header1')
+
+	console.log(h1ID)
+
+	>	<h1 id="header1">Meu xog</h1>
+	```
+	> O atributo `id` foi adicionado fora do documento HTML com `.setAttribute`.
+	>
+	> (primeiro, segundo), o `primeiro` argumento é referente ao _atributo_ já o `segundo` ao nome desse _atributo_.
+
+### Exibir atributo
+- Mostra o que estiver dentro do atributo.
+	```js
+	// JS
+	const h1 = document.querySelector('h1')
+
+	h1.setAttribute('id','header1')
+
+	const h1ID = document.getElementById('header1')
+
+	console.log(h1ID.getAttribute('id'))
+
+	> header1
+	```
+	
+	> Exibir o _nome_ do atributo _id_.
+
+### Removendo atributo
+- Remover atributo.
+
+	```js
+	// JS
+	const h1 = document.querySelector('h1')
+
+	h1.setAttribute('id','header1')
+
+	const h1ID = document.getElementById('header1')
+
+	console.log(h1ID.getAttribute('id'))
+
+	h1ID.removeAttribute('id')
+
+	console.log(h1ID.getAttribute('id'))
+
+	> header1
+	> null
+	```
+
+# Manipulando estilos e classes
+
+## Alterando estilos
+- Alterar valores.
+- Exibir valores.
+
+	```html
+	<!-- HTML-->
+	<h1>Meu xog</h1>
+	```
+	```js
+	// JS
+	const element = document.querySelector('h1')
+
+	element.style.backgroundColor = "red"
+	```
+	>  mudou a cor de fundo de _h1_ para _vermelho_
+	>
+	> `.style.properties` assim podendo estilizar um elemento por linha de código no javaScript.
+	>
+	> Sem o `-`, inves disso apenas coloque a proxima palavra com letra maiuscula.
+
+## Alterando Classes
+
+### Adicionando
+- Adiciona classes ao elemento.
+	```html
+	<!-- HTML-->
+	<h1 class="one">Meu xog</h1>
+	```
+
+	```css
+	/* CSS */
+	.red{
+		background: red;
+	}
+	```
+	```js
+	// JS
+	const element = document.querySelector('h1')
+
+	element.classList.add('red')
+	```
+	> A class `red` foi adicionada  ao elemento _h1_ e ele fico com o fundo vermelho.
+	>
+	> `classList.add()` adiciona a class **red**.
+	
+### Removendo
+- Remove classes ao elemento.
+	```html
+	<!-- HTML-->
+	<h1 class="one red">Meu xog</h1>
+	```
+
+	```css
+	/* CSS */
+	.red{
+		background: red;
+	}
+	```
+	```js
+	// JS
+	const element = document.querySelector('h1')
+
+	console.log(element.getAttribute('class'))
+
+	element.classList.remove('red')
+
+	console.log(element.getAttribute('class'))
+
+	> one red
+	> one
+	```
+	> A class `red` foi removido ao elemento _h1_ e ele deixo de ter o fundo vermelho.
+	>
+	> `classList.remove()` remover a class **red**.
+	
+### Toggle
+- Se existir remove, se não existir adiciona.
+
+	```html
+	<!-- HTML-->
+	<h1 class="one red">Meu xog</h1>
+	```
+
+	```js
+	// JS
+	const element = document.querySelector('h1')
+
+	console.log(element.getAttribute('class'))
+
+	element.classList.toggle('red')
+
+	console.log(element.getAttribute('class'))
+
+	> one red
+	> one
+	```
+	---
+
+	```html
+	<!-- HTML-->
+	<h1 class="one">Meu xog</h1>
+	```
+
+	```js
+	// JS
+	const element = document.querySelector('h1')
+
+	console.log(element.getAttribute('class'))
+
+	element.classList.toggle('red')
+
+	console.log(element.getAttribute('class'))
+
+	> one
+	> one red
+	```
+	> `classList.toggle()` remove ou adiciona, se tiver ou não, respectivamente.

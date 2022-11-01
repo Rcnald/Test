@@ -1001,5 +1001,121 @@ flex-flow: column wrap;
     - basis
 
 ```css
+/* CSS */
 flex: 1 1 10px;    
 ```
+## Exemplo loco
+
+```html
+<!-- HTML-->
+<div class="page">
+        <aside>Aside</aside>
+        <main>
+            Main
+            <section>Content 1</section>
+            <section>Content 2</section>
+            <section>Content 3</section>
+        </main>
+    </div>
+```
+
+```css
+/* CSS */
+.page{
+    border: 2px solid;
+    min-height: 100vh;
+
+    display: flex;
+}
+
+aside{
+    background: green;
+
+    flex-grow: 1;
+}
+
+main{
+    background: blue;
+
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+}
+
+main section:nth-child(1){
+    background: yellow;
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+main section:nth-child(2){
+    background: red;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 130px; 
+}
+
+main section:nth-child(3){
+    background: purple;
+    flex-grow: 1;
+}
+```
+>Descubra oq faz tentando tenha em mente que:
+>
+> `basis` muda tamanha e subresai todo resto
+>
+> `grow` muda como o alemento "cresce", fração do que sobrou de espaço
+>
+> `shrink` muda como elemento "diminui".
+
+## order
+- Muda a ordem de um elemento.
+- VISUALMENTE.
+- Funciona com número negativos.
+
+```html
+<!-- HTML-->
+<div class="box">
+    <div>A</div>
+    <div>B</div>
+    <div>C</div>
+    <div>D</div>
+</div>
+```
+
+A B C D
+
+---
+
+```css
+/* CSS */
+.box{
+    display: flex;
+    border: 2px dashed;
+}
+
+.box div{
+    border: 1px solid;
+}
+
+.box div:nth-child(1){
+    order: 1;
+}
+
+.box div:nth-child(2){
+    order: 2;
+}
+
+.box div:nth-child(3){
+    order: 0;
+}
+
+.box div:nth-child(3){
+    order: 0;
+}
+```
+D C A B
+
+> `order` por padrão é 0, quando se coloca um valor ele colocar da direita pra esquerda no eixo pricipal em ordem crescente a todos os irmãos.
+
+
