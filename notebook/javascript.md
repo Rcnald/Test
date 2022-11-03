@@ -2466,3 +2466,206 @@ console.log(niceBreakfast)
 	> one red
 	```
 	> `classList.toggle()` remove ou adiciona, se tiver ou não, respectivamente.
+
+	# Navegando pelos elementos
+
+	## parentNode e parenteElemento
+	- Exibi o **nó** pai do elemento.
+	- Acho que os dois fazem a mesma coisa.
+
+	```html
+	<!-- HTML-->
+	<body>
+	    <h1>Meu xog</h1>
+	</body>
+	```
+	```js
+	// JS
+	const h1 = document.querySelector('h1')
+
+	console.log(h1.parentNode)
+
+	> body
+	```
+	> `.parentNode` mostra o pai do elemento _h1_.
+
+	## childNodes
+	- Exibi todos os filhos do elemento.
+	- Formato _Nodelist_.
+	- Considera espaços vazios.
+
+	```html
+	<!-- HTML-->
+	<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href="style.css">
+	    <title>Document</title>
+	</head>
+	<body>
+	    <h1 class="one">Meu xog</h1>
+	</body>
+	<script src="./script.js"></script>
+	</html>
+	```
+	```js
+	// JS
+	const element = document.querySelector('html')
+
+	console.log(element.childNodes)
+
+	> NodeList(3) [head, text, body]
+	```
+
+	> `.childNodes` mostra todos os filhos de _html_.
+
+	## children
+	- HTML collection
+	- Exibi elementos filhos.
+	- Desconsidera espaços vazios.
+
+	```html
+	<!-- HTML-->
+	<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href="style.css">
+	    <title>Document</title>
+	</head>
+	<body>
+	    <h1 class="one">Meu xog</h1>
+	</body>
+	<script src="./script.js"></script>
+	</html>
+	```
+	```js
+	// JS
+	const element = document.querySelector('html')
+
+	console.log(element.children)
+
+	> HTMLCollection(2) [head, body]
+	```
+	> `.children` 
+
+	## first
+
+	### firstChild
+	- Exibi o primeiro elemento.
+	- Considera espaços vazios.
+
+	```html
+	<!-- HTML-->
+	<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href="style.css">
+	    <title>Document</title>
+	</head>
+	<body>
+	    <h1 class="one">Meu xog</h1>
+	</body>
+	<script src="./script.js"></script>
+	</html>
+	```
+	```js
+	// JS
+	const element = document.querySelector('body')
+
+	console.log(element.firstChild)
+
+	> #text
+	```
+	---
+
+	```html
+	<!-- HTML-->
+	<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href="style.css">
+	    <title>Document</title>
+	</head>
+
+	<body><h1 class="one">Meu xog</h1>
+	</body>
+
+	<script src="./script.js"></script>
+	</html>
+	```
+	```js
+	// JS
+	const element = document.querySelector('body')
+
+	console.log(element.firstChild)
+
+	> #h1.one
+	```
+	> `.firstChild`  mostra o primeiro filho do elemento.
+
+	### firstElementChild
+	- Exibi o primeiro elemento.
+	- Desconsidera espaços vazios.
+
+	```html
+	<!-- HTML-->
+	<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href="style.css">
+	    <title>Document</title>
+	</head>
+	<body>
+	    <h1 class="one">Meu xog</h1>
+	</body>
+	<script src="./script.js"></script>
+	</html>
+	```
+	```js
+	// JS
+	const element = document.querySelector('body')
+
+	console.log(element.firstElementChild)
+
+	> #h1.one
+	```
+	> `.firstElementChild`
+
+	## lastChild e lastElementChild
+	- Exibi o ultimo elemento.
+	- Considere espaços vazios.
+
+	```html
+	<!-- HTML-->
+	<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href="style.css">
+	    <title>Document</title>
+	</head>
+	<body>
+		<h1 class="one">Meu xog</h1>
+		<script src="./script.js"></script>
+	</body>
+	</html>
+	```
+	```js
+	// JS
+	const element = document.querySelector('body')
+
+	console.log(element.lastChild)
+
+	> script
+	```

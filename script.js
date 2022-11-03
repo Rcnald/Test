@@ -1,7 +1,3 @@
-const element = document.querySelector('h1')
+const element = document.querySelector('body')
 
-	console.log(element.getAttribute('class'))
-
-	element.classList.toggle('red')
-
-	console.log(element.getAttribute('class'))
+	console.log(element.lastChild)
