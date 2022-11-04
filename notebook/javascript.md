@@ -2467,11 +2467,11 @@ console.log(niceBreakfast)
 	```
 	> `classList.toggle()` remove ou adiciona, se tiver ou não, respectivamente.
 
-	# Navegando pelos elementos
+# Navegando pelos elementos
 
-	## parentNode e parenteElemento
-	- Exibi o **nó** pai do elemento.
-	- Acho que os dois fazem a mesma coisa.
+## parentNode e parenteElemento(país)
+- Exibi o **nó** pai do elemento.
+- Acho que os dois fazem a mesma coisa.
 
 	```html
 	<!-- HTML-->
@@ -2489,10 +2489,10 @@ console.log(niceBreakfast)
 	```
 	> `.parentNode` mostra o pai do elemento _h1_.
 
-	## childNodes
-	- Exibi todos os filhos do elemento.
-	- Formato _Nodelist_.
-	- Considera espaços vazios.
+## childNodes(filhos)
+- Exibi todos os filhos do elemento.
+- Formato _Nodelist_.
+- Considera espaços vazios.
 
 	```html
 	<!-- HTML-->
@@ -2521,10 +2521,10 @@ console.log(niceBreakfast)
 
 	> `.childNodes` mostra todos os filhos de _html_.
 
-	## children
-	- HTML collection
-	- Exibi elementos filhos.
-	- Desconsidera espaços vazios.
+## children
+- HTML collection
+- Exibi elementos filhos.
+- Desconsidera espaços vazios.
 
 	```html
 	<!-- HTML-->
@@ -2552,11 +2552,11 @@ console.log(niceBreakfast)
 	```
 	> `.children` 
 
-	## first
+## first
 
-	### firstChild
-	- Exibi o primeiro elemento.
-	- Considera espaços vazios.
+### firstChild
+- Exibi o primeiro elemento filho.
+- Considera espaços vazios.
 
 	```html
 	<!-- HTML-->
@@ -2611,9 +2611,9 @@ console.log(niceBreakfast)
 	```
 	> `.firstChild`  mostra o primeiro filho do elemento.
 
-	### firstElementChild
-	- Exibi o primeiro elemento.
-	- Desconsidera espaços vazios.
+### firstElementChild
+- Exibi o primeiro elemento filho.
+- Desconsidera espaços vazios.
 
 	```html
 	<!-- HTML-->
@@ -2641,9 +2641,8 @@ console.log(niceBreakfast)
 	```
 	> `.firstElementChild`
 
-	## lastChild e lastElementChild
-	- Exibi o ultimo elemento.
-	- Considere espaços vazios.
+## lastChild e lastElementChild
+- Exibi o ultimo elemento filho.
 
 	```html
 	<!-- HTML-->
@@ -2669,3 +2668,526 @@ console.log(niceBreakfast)
 
 	> script
 	```
+
+## Sibling
+
+### nextSibling
+- Exibi o proximo(direita ou debaixo)irmão do elemento.
+- Apenas o next quer dizer o proximo mesmo não importando oque seja.
+- Considera espaços vazios.
+
+	```html
+	<!-- HTML-->
+	<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href="style.css">
+	    <title>Document</title>
+	</head>
+	<body>
+		<h1>Meu xog</h1>
+		<script src="./script.js"></script>
+	</body>
+	</html>
+	```
+	```js
+	// JS
+	const element = document.querySelector('body h1')
+
+	console.log(element.nextSibling)
+
+	> #text
+	```
+
+	---
+
+	```html
+	<!-- HTML-->
+	<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href="style.css">
+	    <title>Document</title>
+	</head>
+	<body>
+		<h1>Meu xog</h1><script src="./script.js"></script>
+	</body>
+	</html>
+	```
+	```js
+	// JS
+	const element = document.querySelector('body h1')
+
+	console.log(element.nextSibling)
+
+	> script
+	```
+	> `.nextSibling` proximo irmão do elemento levando em conta espaços vazios.
+
+### nextElementSibling
+- Exibi o proximo(direita ou debaixo) **elemento** irmão do elemento.
+- Quando se ter o next**Element** quer dizer que ele vai exibir o proximo elemento irmão apenas.
+- Desconsidera espaços vazios.
+
+	```html
+	<!-- HTML-->
+	<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href="style.css">
+	    <title>Document</title>
+	</head>
+	<body>
+		<h1>Meu xog</h1>
+		<script src="./script.js"></script>
+	</body>
+	</html>
+	```
+	```js
+	// JS
+	const element = document.querySelector('body h1')
+
+	console.log(element.nextElementSibling)
+
+	> script
+	```
+	> `.nextElementSibling` mostra o proximo irmão elemento não importando onde ele está.
+
+### previousSibling
+- Exibi o anterior(esquerda ou emcima) irmão do elemento.
+- Considera espaços vazios.
+
+	```html
+	<!-- HTML-->
+	<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href="style.css">
+	    <title>Document</title>
+	</head>
+	<body>
+		<h1>Meu xog</h1>
+		<script src="./script.js"></script>
+	</body>
+	</html>
+	```
+	```js
+	// JS
+	const element = document.querySelector('body script')
+
+	console.log(element.previousSibling)
+
+	> #text
+	```
+
+	---
+
+	```html
+	<!-- HTML-->
+	<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href="style.css">
+	    <title>Document</title>
+	</head>
+	<body>
+		<h1>Meu xog</h1><script src="./script.js"></script>
+	</body>
+	</html>
+	```
+	```js
+	// JS
+	const element = document.querySelector('body script')
+
+	console.log(element.previousSibling)
+
+	> h1
+	```
+	> `.previousSibling` qualquer coisa anterior a ele será seu irmão.
+
+## previousElementSibling
+- Exibi o anterior(esquerda ou emcima) **elemento** irmão do elemento.
+
+	```html
+	<!-- HTML-->
+	<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href="style.css">
+	    <title>Document</title>
+	</head>
+	<body>
+		<h1>Meu xog</h1>
+		<script src="./script.js"></script>
+	</body>
+	</html>
+	```
+	```js
+	// JS
+	const element = document.querySelector('body script')
+
+	console.log(element.previousElementSibling)
+
+	> script
+	```
+	> `.previousElementSibling` mostra qualquer elemento irmão anterior a ele não importando obstaculos não elementais.
+
+# Criar e adicionar elementos no HTML
+
+## Criar
+- Criar elemento HTML através do JS.
+
+	```html
+	<!-- HTML-->
+	<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href="style.css">
+	    <title>Document</title>
+	</head>
+	<body>
+		<h1>Meu xog</h1>
+		<script src="./script.js"></script>
+	</body>
+	</html>
+	```
+	```js
+	// JS
+	const div = document.createElement('div')
+
+	div.innerText = "Oi amorrrrrrr"
+	```
+	> `.createElement` cria um elemento no documento.
+	>
+	> `.innerText` atribui um texto interno no elemento.
+
+## Adicionando
+
+### Adicionado depois
+- Adiciona o elemento já criado por ultimo.
+
+	```js
+	// JS
+
+	//const div = document.createElement('div')
+
+	//div.innerText = "Oi amorrrrrrr"
+
+	const body = document.querySelector('body')
+
+	body.append(div)
+	```
+	```html
+	<!-- HTML-->
+	<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href="style.css">
+	    <title>Document</title>
+	</head>
+	<body>
+		<h1>Meu xog</h1>
+		<script src="./script.js"></script>
+
+		<div>Oi amorrrrrrr</div>
+
+	</body>
+	</html>
+	```
+	> `.append` adiciona o elemento como um _lastChild_ no elemento indicado.
+
+### Adicionando antes
+- Adiciona o elemento já criado em primeiro.
+
+	```js
+	// JS
+
+	//const div = document.createElement('div')
+
+	//div.innerText = "Oi amorrrrrrr"
+
+	const body = document.querySelector('body')
+
+	body.prepend(div)
+	```
+	```html
+	<!-- HTML-->
+	<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href="style.css">
+	    <title>Document</title>
+	</head>
+	<body>
+
+		<div>Oi amorrrrrrr</div>
+
+		<h1>Meu xog</h1>
+		<script src="./script.js"></script>
+	</body>
+	</html>
+	```
+	> `.prepend` adiciona o elemento como um _firstChild_ no elemento indicado.
+
+### Adicionando onde eu quiser
+- Adicionado elemento já criado na posição que eu quiser.
+
+	```js
+	// JS
+
+	//const div = document.createElement('div')
+
+	//div.innerText = "Oi amorrrrrrr"
+
+	const body = document.querySelector('body')
+
+	body.insertBefore(div, document.querySelector('script'))
+	```
+	```html
+	<!-- HTML-->
+	<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href="style.css">
+	    <title>Document</title>
+	</head>
+	<body>
+		<h1>Meu xog</h1>
+
+		<div>Oi amorrrrrrr</div>
+		
+		<script src="./script.js"></script>
+	</body>
+	</html>
+	```
+	> `.insertBefore(argument1, argument2)` adiciona o elemento como uma _Child_ no elemento indicado sendo o `argument1` o elemento a ser adicionado e `argument2` o elemento que ele ficará antes(previousElementSibling).
+
+#### simulando insertAfter
+- Como **argumento2** do `.insertBefore` insira `element.NextSibling`.
+
+# Eventos
+
+## Adicionando eventos via HTML
+- Adiciona-se um **atributo** `on...=""` no _elemento_.
+- Dentro das "" terá uma função JS a ser executada.
+
+	```html
+	<!-- HTML-->
+		<h1 onclick="escreva()">Meu xog</h1>
+	```
+	```js
+	// JS
+	function escreva(){
+		console.log('escreva')
+	}
+	```
+	> `onclick` quando for clicado, **on - click** executa `escreva()`
+	
+	```js
+	// JS
+	> escreva
+	```
+
+## Adicionando evento de teclado ou apenas adicionando no JS
+- Input (exemplo de onde o teclado irá funcionar).
+- Esses eventos do tipo `.on event` functiona com sobescrita e não irá atender a varios eventos em um mesmo elemento sem sobescreve-lo.
+
+	```js
+	h1.onclick = function(){
+		console.log('escreva')
+	}
+
+	h1.onclick = function(){
+		console.log('escreva dnv')
+	}
+
+	//cliquei no h1
+
+	> escreva dnv
+	```
+	> Ele sobescreve no flow normal como se fosse uma variavel.
+
+### onkeydown
+- Quando a tecla estiver para baixo(pressionada).
+
+	```html
+	<!-- HTML-->
+	<input type="text" name="" id="">
+	```
+	```js
+	// JS
+	const input = document.querySelector('input')
+
+	input.onkeydown = function(){
+		console.log('rodei')
+	}
+	```
+	<input type="text" name="" id="" value="as 'segurei por 3 sec'">
+
+	```js
+	// JS
+	> rodei(9)
+	```
+	> `.onkeydown` enquanto a tecla estiver pressionada ou for pressionada a _function_ será executada.
+
+### onkeyup
+- Quando a tecla estiver para cima(soltar a tecla).
+
+	```html
+	<!-- HTML-->
+	<input type="text" name="" id="">
+	```
+	```js
+	// JS
+	const input = document.querySelector('input')
+
+	input.onkeyup = function(){
+		console.log('rodei')
+	}
+	```
+	<input type="text" name="" id="" value="as 'cliquei e soltei 9 vezes'">
+
+	```js
+	// JS
+	> rodei(9)
+	```
+	> `.onkeyup` quando a tecla deixar de ser pressionada _function_ será executada.
+
+### onkeypress
+- Ao pressionar executa a function.
+- Sem exemplo né pfv k.
+
+## Adicionando eventos via JS
+
+### Ouvidor de eventos
+- Vai atender a varios eventos em um mesmo elemento sem sobescreve-lo.
+
+	```js
+	h1.onclick = function(){
+		console.log('escreva')
+	}
+
+	h1.onclick = function(){
+		console.log('escreva dnv')
+	}
+
+	//cliquei no h1
+
+	> escreva
+	> escreva dnv
+	```
+	> Ele não sobescreve executa os dois.
+
+	---
+	---
+	---
+
+	```html
+	<!-- HTML-->
+	<h1>Meu xog</h1>
+	```
+	```js
+	// JS
+	const h1 = document.querySelector('h1')
+
+	h1.addEventListener('click', escreva)
+
+	function escreva(){
+		console.log('escreva')
+	}
+	```
+	> `.addEventListener(argument1, argument2)` toda vez que o evento do 	`argument1` for "executado" no elemento o `argument2` executará uma funcrion
+	>
+	> É 'escreva' se for 'escreva()' ele executará a functio automaticamente.	
+
+# Argumento Event
+- Consigo saber o tipo:
+	- event
+		- .prototypedata
+
+
+```html
+<!-- HTML-->
+<input type="text" name="" id="">
+```
+```js
+// JS
+const input = document.querySelector('input')
+
+input.onkeydown =  function(event){
+
+console.log(event)
+```
+
+<input type="text" name="" id="" value="s">
+
+```js
+// JS
+> KeyboardEvent {isTrusted: true, key: 's', code: 'KeyS', location: 0,ctrlKey: false, …}
+```
+> Teclado
+
+---
+
+```html
+<!-- HTML-->
+<h1>Meu xog</h1>
+```
+```js
+// JS
+const h1 = document.querySelector('h1')
+
+h1.onclick =  function(event){
+console.log(event)
+}
+```
+```js
+//Cliquei
+```
+
+
+```js
+// JS
+> PointerEvent {isTrusted: true, pointerId: 1, width: 1, height: 1,pressure: 0, …}
+```
+> Mouse
+
+---
+
+```js
+// JS
+const input = document.querySelector('input')
+
+input.onkeydown =  function(event){
+console.log(event.key)
+```
+
+<input type="text" name="" id="" value="S">
+
+```js
+// JS
+> S
+```
+> `fuction(event)` quando atrelada a um event JS exibi o tipo de eventoque ocorre
+>
+> `event.data` exibi que tipo de evento, quando com .data, especifica oque deverá ser exibido como `.key`. 

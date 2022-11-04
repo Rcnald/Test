@@ -1,3 +1,5 @@
-const element = document.querySelector('body')
+const h1 = document.querySelector('h1')
 
-	console.log(element.lastChild)
+	h1.onclick =  function(event){
+	console.log(event)
+	}
