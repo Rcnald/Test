@@ -1,0 +1,191 @@
+inline > tag > link - CSS ordem de importancia
+inline > id > class > element > * - CSS ordem importancia
+!important - subescreve tudo não importa a ordem, o elemento que tiver essa tag sera o mais importante
+
+@import - incluir CSS externo
+@media - responsividade
+@font-face - font externa
+@keyframes - animações
+
+shorthand{
+    background-color: #000;
+    background-image: url('image');
+    background-repeat: no-repeat;
+    background-position: left top;
+
+	background: #000 url('image') no-repeat left top;
+} mozilla/shorthand....
+
+função{
+    color: rgb(2,2,2) - sim isso é uma funçao k
+    width: calc(80% - 10px) - 80% de algo menos -10px
+    @import: url('dajidyghaiufga')
+}
+
+https://caniuse.com -  adaptar CSS a browsers, -webkit-bg, -moz-...
+
+<integer> - inteiros
+<number> - reais
+<dimension> - <number> com unidade de medida, 10px, 3s
+<percentagem> - fraçao de outro numero, 50% do que? precisa de referencia pra %
+
+<lenght> - px, em, vw
+<angle> - deg, rad, turn
+<time> - s, ms 
+<resolution> - dps, usa mais em responsividade
+
+em - relativo a font do pai, pai = 10px, filho = 2em, 20px
+rem - relativo a font da root/html
+vw - viewport = tudo oq eu estou vendo, 1vw 1% do que estou vendo width
+vh - viewport = tudo oq eu estou vendo, 1vw 1% do que estou vendo height
+
+% - se relaciona sempre com o elemento pai, pai = 1000px, filho 1= 50%, 500px, neto 1= 50%, 250px e por ai vai
+
+<position> <> position: - ex: background-position: right 50px;, basicamente muda que parte da imagem vai aparecer sem mudar w, h e position da box
+::after - pseudo-element - adiciona com content:""; string no "html", é so visual mesmo, despois
+::before - pseudo-element - adiciona com content:""; string no "html", é so visual mesmo, antes
+width - largura
+height - altura
+content - conteudo
+border - bordas - quando tem "box-sizing: border-box; o elemento border vai pra dentro, não pra fora da caixa
+border-top-right-bottom-left - escolher em que parte da box vai ter "borda"
+border: dotted, double red; - tem varios outros styles além do 'solid' pesquise e descubra
+padding -  preenchimento espaço interno
+margin - espaço externo fora da caixa
+box-sizing: border-box - se a caixa é 100px se eu colocar padding 20px não vai somar 120px vai calcular para ainda ser 100px e o conteudo vai se ajustar ao 20px
+display : block - ocupa toda linha e prox element em baixo, width height margin padding border funcionam,, div, p section h1..
+display: inline - element um ao lado do outro, width height não funcionam, padding margin border so funcionam valores horizontais,, a em strong span
+shorthand{
+	margin: 17px 4px 2px 18px; top right bottom left
+	margin: 17px 4px 2px; top right&left bottom
+	margin: 17px 4px ; top&bottom right&left
+	margin: 17px; top,right,bottom&left
+	margin: 0 (evitar comportamento esquisitos) auto - fazer calcula width e margin igual nas laterais
+} - quando elemento esta um abaixo do outro um tiver margin-bottom: 8px; e o de baixo margin-top: 12px; eles iram se juntar ficando com espaçamento de 12px e for do lado do outro vão somar ficando 16px (margin collapsin)
+shorthand{
+	padding: 17px 4px 2px 18px; top right bottom left
+	padding: 17px 4px 2px; top right&left bottom
+	padding: 17px 4px ; top&bottom right&left
+	padding: 17px; top,right,bottom&left
+}
+outline - não altera o valor da caixa, é como um border mas não soma o valor da caixa
+hex #028a - o 'a' server pra regular transparencia, tambem pode aparecer assim "#986708FF" FF no caso transparente
+color : initial; - color inicial
+background-repeat: no-repeat; - basicamente toda imagem por padrão se repete dentro da caixa, então 'no-repeat' faz ela parar de se repetir 
+background-repeat: repeat-y; - ela vai repetir somente na vertical
+background-repeat: repeat-x; - ela vai repetir somente na horizontal
+background-position: center right; - mudar posição da imagem, sendo 1 propridade horizontal e 2 propriedade na vertical... so 1 aplica nas 2
+background-size: contain; - vai ficar contida no espaço delimitado respeitando a proporção da imagem
+background-size: cover; - vai esticar ate preencher toda a area da caixa
+background-size: 20% 50%; - 1 propriedade width, 2 propriedade height
+background-origin: border-box; - a origem da imagem vai começar a partir de de dentro da borda
+background-origin: content-box; - padrão
+background-origin: padding-box; - origem da imagem começa a partir do padding
+background-clip: padding-box - muda tanto background-color tanto bg-image, a partir de onde eu quero que eles apareceçam, no caso padding(mesma coisa do origin)
+background-attachment: scroll; - padrão, quando tem uma barra de rolagem a imagem do bg rola junto
+background-attachment: fixed; -  quando tem uma barra de rolagem a imagem do bg não rola junto fica fixa
+background: ; - da pra usar shorthand livre mesmo foda-se faz na ordem q quiser, mas quando for usar size coloque / antes e origin e clip sao nessa ordem
+background: linear-gradient(19deg, red, blue, yellow); - gradient, que o '19deg' é a angulação, e proximos valores são as colors
+background: radial-gradient(red, blue, yellow); - gradiente em formato de circulo 
+/*SEPARA NO SHORTHAND BG POR ',' QUE TEREMOS MULTIPLOS BACKGROUNDS*/
+position:
+	-static - o padrão, vão ficar estatico do jeito que vem na pagina
+	-relative - o elemento fica relativo a ele mesmo ou seja, agora ele é 'livre' não influencia os elementos em volta, o fluxo continua o mesmo, não é preenchido, relacionado a algum elemento pai (ou filho?)
+	     -top
+	     -right
+	     -left
+	     -bottom
+	     -z-index
+	-absolute - o elemento fica em um novo fluxo, agora o espaço que era dele no antigo fluxo pode ser preenchido, absolute em relação a pagina
+	     -top
+	     -right
+	     -left
+	     -bottom
+	     -z-index
+	-fixed - o elemento fica fixo na pagina, literal
+	     -top
+	     -right
+	     -left
+	     -bottom
+	     -z-index
+	-stacking - 
+	     -top
+	     -right
+	     -left
+	     -bottom
+	     -z-index - basicamenete é a camada que o elemento ta, o azul ta em cima do vermelho mas se eu colocar z-index: 3; no vermelho ele fica em cima do azul
+
+(atributo de display)Flexbox : permite posicionar os elementos dentro da caixa. alinhamento (horizontal ou vertical = padrão), direcionamento, ordenar e size. so no filhos, os filhos dos filhos não funciona.
+(atributo de display)Grid: permite posicionar os elementos dentro da caixa. alinhamento (horizontal e vertical), quando redimenciona não quebra
+KRL MUITO LOKO SO VENDO DNV E FAZENDO MSM KSKSKSKS
+	grid-template-areas: - as "" sao as linhas, rows a quatidade de itens dentro dela sao as colunas "header header" duas no caso
+    	"header header" 
+    	"main aside" 
+    	"footer footer";
+
+ 	grid-template-rows: - agora em size das linhas, rows cada datatype pra cada row,3 
+	3rem
+	1fr - fr = flexivel ou pode redimenciona que vai proporcional
+	4rem;
+
+	rid-template-columns: agora em size das colunas, columns cada datatype pra cada row,3 
+    	1fr
+    	8rem;
+
+	grid-area: header; - coloca na div que vc quer quer linkar com a grid 'header' é so o nome que você dá como um 'class'
+	
+	GRID BASICAMENTE UM FLEX COM MAIS DE UMA LINHA, da pra usar os dois juntos não na mesma div pai
+
+font-family: ; - tipo de font
+font-weight: ; - peso da font, normal, bold, bolder, lighter e os numeros de 100 a 900, 100 em 100, da pra usar dependendo da font
+font-style: ; - estilo de font, italico, obliquo etc, da pra usar dependendo da font
+font-size: ; - tamanho da font
+font-variant: ; - forma de apresentação da font no caso 'small-caps' transforma as minusculos em maiusculas um pouco menores.
+font-stretch: ; - alargamento ou encolhimento da font
+	-expanded
+	-condensed
+	-normal
+	-porcentagem - da pra usar dependendo da font os 4.
+letter-spacing: ; - espaço entre caracteres, letras
+word-spacing: ; - espaço entra palavras
+line-height: ; - espaçato entre linhas, rows
+text-transform: ; - uma transformção de texto
+	-uppercase - maiusculas
+	-lowercase - minusculas
+	-none
+	-capitalize - primerias letras maiusculas
+text-decoration: ; - aparencia decorativa de um texto
+	-line
+	   -underline - sublinhado
+	   -overline - linha em cima do texto
+	   -line-trough - linha cortando o texto horizontalmente
+		-DA PRA COLOCAR MAIS DE UM DESSES AI
+	-style
+	   -wavy
+	   -dashed
+	   -dotted
+	   -solid
+	-color
+text-align: ; - alinhamento de um texto
+	-center
+	-left
+	-right
+	-justify - negocio do word
+text-shadow: ; - sompra aplicada em um texto ,  shorthand
+	-offset x - 1px
+	-offset y - 1px - 
+	-blur-radius - 1px - embaçamento
+	-color - blue
+TEM SHORT HAND DE TODOS ESSES FONT... MAS É MUITO LOKO NEM TENTE.
+/*COLOCAR SOMBRA EM IMAGEM*/
+    filter: brightness(120%);
+    filter: contrast(120%);
+    filter: drop-shadow(10px 10px 10px rgb(11, 11, 11));
+em - multiplica o parent - nav li = 14px// nav li a = 2em == 28px
+
+
+
+
+
+
+    

@@ -2877,6 +2877,8 @@ console.log(niceBreakfast)
 
 ## Adicionando
 
+https://www.youtube.com/watch?v=VPXLOXz2Xzg&list=PLnDvRpP8BneysKU8KivhnrVaKpILD3gZ6&index=24
+
 ### Adicionado depois
 - Adiciona o elemento já criado por ultimo.
 
@@ -3191,3 +3193,9 @@ console.log(event.key)
 > `fuction(event)` quando atrelada a um event JS exibi o tipo de eventoque ocorre
 >
 > `event.data` exibi que tipo de evento, quando com .data, especifica oque deverá ser exibido como `.key`. 
+
+---
+
+# NEW JS
+
+
